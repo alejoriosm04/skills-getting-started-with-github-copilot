@@ -15,11 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   async function refreshActivities(message = null, isError = false) {
     await fetchActivities();
 
-    if (message) {
-      messageDiv.textContent = message;
-      messageDiv.className = isError ? "error" : "success";
-      messageDiv.classList.remove("hidden");
-
+      messageDiv.className = `message ${isError ? "error" : "success"}`;
       setTimeout(() => {
         messageDiv.classList.add("hidden");
       }, 5000);
